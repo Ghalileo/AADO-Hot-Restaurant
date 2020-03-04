@@ -45,11 +45,11 @@
     <script>
         $("#add-btn").on("click", function(event) {
             event.preventDefault();
-            var reservation = {
-            name: $("#name").val().trim(),
+            let reservation = {
+            name: $("#name").val().trim()
             };
 
-            $.post("/", reservation)
+            $.post("/api/reservations", reservation)
             .then(function(data) {
                 console.log("reserveAdd.html", data);
                 alert("Adding reservation...");
