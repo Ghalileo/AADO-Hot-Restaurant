@@ -49,7 +49,7 @@
             name: $("#name").val().trim(),
             };
 
-            $.post("/api/tables", reservation)
+            $.post("/", reservation)
             .then(function(data) {
                 console.log("reserveAdd.html", data);
                 alert("Adding reservation...");
