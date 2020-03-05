@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
+  <title>Tables</title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -11,17 +11,49 @@
 
 </head>
 <style>
-  html {
+  body {
     margin: 20px;
   }
+  .btn:hover {
+  background-color: #666;
+  /* color: white; */
+  }
+  .btn {
+  border: solid 2px;
+  border-color: lightgrey;
+  outline: none;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
 </style>
 <html>
 
   <body>
-    <div class="z-depth-3" id="choices" style="margin:0px">
-      <button id="btn raw">Raw</button>
-      <button class="selected" id="btn parsed">Parsed</button>
-    </div>
+    <div class="container-fluid" id="choices" style="margin:0px;">
+      <div class="float-right" id="btn btnDiv">
+        <button type="button" class="btn" id="btn raw">Raw</button>
+        <button type="button" class="btn btn-secondary" id="btn parsed">Parsed</button>
+      </div>
+      <div class="JSON waitlist float-left" style="font-size: 18px; font-family: Menlo, monospace;">
+        
+      </div>
+
+  </div>
+  <script>
+    // Add active class to the current button (highlight it)
+    // var header = document.getElementById("btnDiv");
+    var btns = document.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function(){
+        var current = document.getElementsByClassName("btn-secondary");
+        current[0].className = current[0].className.replace(" btn-secondary", "");
+        this.className += " btn-secondary";
+      });
+    }
+    </script>
   </body>
+
+  
 
 </html>
