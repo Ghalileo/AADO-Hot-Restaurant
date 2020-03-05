@@ -43,18 +43,36 @@
         </div>
     </div>
     <script>
-        $("#add-btn").on("click", function(event) {
-            event.preventDefault();
-            let reservation = {
-            name: $("#name").val().trim()
-            };
+       $(document).ready(function(){
+       
+            // we need to make an ajax get to gather all of the reservations (/api/reservations)
+             $.get("/api/reservations", function(data){
+                 console.log(data);
+             })
 
-            $.post("/api/reservations", reservation)
-            .then(function(data) {
-                console.log("reserveAdd.html", data);
-                alert("Adding reservation...");
+            // we need to make an ajax get to gather all of the waitlist (/api/waitlist)
+
+
+            //display information we get back w/jquery or javascript.
+
+
+            $("#add-btn").on("click", function(event) {
+                event.preventDefault();
+                let reservation = {
+                name: $("#name").val().trim()
+                };
+
+                
+
+                $.post("/api/reservations", reservation)
+                .then(function(data) {
+                    console.log("reserveAdd.html", data);
+                    alert("Adding reservation...");
+                });
             });
-        });
+
+
+         })
     </script>
 </body>
 </html>
