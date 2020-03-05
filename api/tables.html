@@ -2,58 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tables Page</title>
+  <title>Home</title>
 
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
 
 </head>
-<body>
+<style>
+  html {
+    margin: 20px;
+  }
+</style>
+<html>
 
-  <div class="container">
+  <body>
+    <div class="z-depth-3" id="choices" style="margin:0px">
+      <button id="btn raw">Raw</button>
+      <button class="selected" id="btn parsed">Parsed</button>
+    </div>
+  </body>
 
-    <div class="jumbotron">
-      <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1>
-      <hr>
-      <h2 class="text-center">Current Reservations and Waiting List</h2>
-      <br>
-
-      <div class="text-center">
-        <a href="/reserve"><button class="btn btn-lg btn-danger"><span class="fa fa-list-alt"></span> Make Reservation</button></a>
-        <a href="/index"><button class="btn btn-lg btn-default"><span class="fa fa-home"></span></button></a>
-      </div>
-      </div>
-
-      <div class="container-fluid">
-      </div>
-      <br><br>
-      <div class="card">
-        <h2 class="card-header">
-            Current Reservations
-        </h2>
-
-          <!-- <div class="card card1" style="display: inline-block; margin: 20px;">
-            <h3 class="card-header head1">Table #1</h3>
-            <div class="card-body card_body1" style="font-size: 30px;">
-              <div class="card-text card1_id">ID: Text</div>
-              <div class="card-text card1_name">Name: Text</div>
-              <div class="card-text card1_email">Email: Text</div>
-              <div class="card-text card1_phone">Phone: Text</div>
-            </div>
-          </div> -->
-
-        </div>
-      </div>
-    <footer class="footer">
-      <div class="container">
-        <p><a class="clear">Clear List</a> | <a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a>
-      </div>
-
-    </footer>
-
-  </div>
-
-
-</body>
 </html>
