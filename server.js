@@ -1,24 +1,42 @@
 
-//our dependencies
-var express = require("express");
-var path = require("path");
 
-// setting up express app 
-var app = express();
-var http = Request;
-var PORT = process.env.PORT || 8080;
+const express = require("express");
+const path = require("path");
 
-//handling data parsing 
-app.use(express.urlencoded({ extended: true}));
-app.use(express.json);
+const reservations = [];
 
-// Request handling.
-app.get("/", function(req,res){
-    res.sendFile(path.join(__dirname, "view.html"));
-});
+app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
-})
+});
+
+app.get("/reserve", function(req, res) {
+    res.sendFile(path.join(__dirname, "reserveAdd.html"));
+});
+
+app.get("/api/reservations", function(req, res) {
+    return res.json(reservations);
+});
+
+app.post("/api/reservations", function(req, res) {
+    var newReservation = req.body;
+
+    newReservation.routeName = newReservation.name.replace(/\s+/g, "").toLowerCase();
+
+    console.log(newReservation);
+
+    reservations.push(newReservation);
+
+    res.json(newReservation);
+});
+
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+});
 
 
