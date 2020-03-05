@@ -15,4 +15,4 @@
 
 * Spend some time trying to build exposure. But don't get overwhelmed. We'll have plenty of time to come back to this.
 **
-go into html and format how they will go into it. 
+go into index.html and format how they will go into it. 
