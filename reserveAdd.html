@@ -5,11 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
-            <h1>Reserved Table For</h1>
+            <h1>Reserve Table For</h1>
             <hr>
             <a href="/"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span></button></a>
         </div>
@@ -39,18 +43,36 @@
         </div>
     </div>
     <script>
-        $("#add-btn").on("click", function(event) {
-            event.preventDefault();
-            var reservation = {
-            name: $("#name").val().trim(),
-            };
+       $(document).ready(function(){
+       
+            // we need to make an ajax get to gather all of the reservations (/api/reservations)
+             $.get("/api/reservations", function(data){
+                 console.log(data);
+             })
 
-            $.post("/api/tables", reservation)
-            .then(function(data) {
-                console.log("reserveAdd.html", data);
-                alert("Adding reservation...");
+            // we need to make an ajax get to gather all of the waitlist (/api/waitlist)
+
+
+            //display information we get back w/jquery or javascript.
+
+
+            $("#add-btn").on("click", function(event) {
+                event.preventDefault();
+                let reservation = {
+                name: $("#name").val().trim()
+                };
+
+                
+
+                $.post("/api/reservations", reservation)
+                .then(function(data) {
+                    console.log("reserveAdd.html", data);
+                    alert("Adding reservation...");
+                });
             });
-        });
+
+
+         })
     </script>
 </body>
 </html>
